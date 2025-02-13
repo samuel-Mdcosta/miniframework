@@ -1,0 +1,19 @@
+{
+    "name": "vendor/miniframework",
+    "require": {
+        "php": ">=7.0"
+    },
+    "authors": [
+        {
+            "name": "Samuel Costa",
+            "email": "costadev19@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "app\\": "app/",
+            "MF\\": "vendor/MF/"
+        }
+    }
+    
+}
