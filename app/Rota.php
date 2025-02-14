@@ -52,6 +52,22 @@
         }
 
         public function run($url){
+
+            //retorna os array de getRoutes() e pega as variaveis que armazena a url
+            foreach($this->getRoutes() as $key => $routes){
+                if($url == $routes['route']){
+                    //concatena a url atual ao app\\controllers/sobre_nos
+                    $class = "app\\controllers\\".$routes['controller'];
+
+                    //inicia uma nova instancia da variavel $class
+                    $controller = new $class;
+
+                    //variavel que armazena o valor da action
+                    $action= $routes['action'];
+                    //executa a action dentro do controller de acordo com o valor do seu action dentro do array
+                    $controller->$action();
+                }
+            }
              
         }
 
