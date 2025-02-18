@@ -18,8 +18,12 @@
             $classAtual = get_class($this);
 
             // ira diixar dinamico o nome da pagina
-            echo str_replace('app\\controllers\\', '', $classAtual);
+            $classAtual = str_replace('app\\controllers\\', '', $classAtual);
+        
+            $classAtual = strtolower(str_replace('Controller', '', $classAtual));
+
+            echo $classAtual;
             echo '<hr>';
-            require_once __DIR__ . "/../views/index/".$view.".phtml";
+            require_once __DIR__ . "/../views/".$classAtual."/".$view.".phtml";
         }
     }
