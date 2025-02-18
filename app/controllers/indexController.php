@@ -2,17 +2,25 @@
     namespace app\controllers;
 
     class indexController{
+
+        private $view;
+
+        public function __construct(){
+            //classe naticva para a criacao de objetos padroes
+            $this->view = new \stdClass; 
+        }
+
         public function index(){
-            $dados = array('celular', 'computador');
-            $this->render('index', $dados);
+            $this->view->dados = array('celular', 'computador');
+            $this->render('index');
         }
 
         public function sobre_nos(){
-            $dados = array('feijao', 'arroz');
-            $this->render('sobreNos', $dados);
+            $this->view->dados = array('feijao', 'arroz');
+            $this->render('sobreNos');
         }
 
-        public function render($view, $dados){
+        public function render($view){
 
             //recupera a classe que esta sendo executasa o action
             $classAtual = get_class($this);
