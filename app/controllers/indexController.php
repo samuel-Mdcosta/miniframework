@@ -25,6 +25,17 @@
 
         public function sobre_nos(){
             //$this->view->dados = array('feijao', 'arroz');
+
+            //instancia conecxao pdo
+            $conn = connection::getDb();
+
+            //instancia oo produto
+            $produto = new produto($conn);
+            
+            $produtos = $produto->getProdutos();
+            
+            $this->view->dados = $produtos;
+
             $this->render('sobreNos', 'layout2');
         }
     }
