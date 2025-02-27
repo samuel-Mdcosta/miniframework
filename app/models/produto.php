@@ -1,13 +1,8 @@
 <?php
     namespace app\models;
-    use PDO;
+    use MF\model\model;
 
-    class produto{
-        protected $db;
-
-        public function __construct(PDO $db){
-            $this->db = $db;
-        }
+    class produto extends model{
 
         public function getProdutos(){
             $query = "select id, descricao, preco from tb_produtos";
