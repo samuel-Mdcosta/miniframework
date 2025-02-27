@@ -1,20 +1,20 @@
 <?php
     namespace app\controllers;
     
+    //miniframework
     use MF\controller\action;
-    use app\connection;
+    use MF\model\container;
+
+    //models
     use app\models\produto;
+    use app\models\info;
+
 
     class indexController extends action{
 
         public function index(){
             //$this->view->dados = array('celular', 'computador');
-
-            //instancia conecxao pdo
-            $conn = connection::getDb();
-
-            //instancia oo produto
-            $produto = new produto($conn);
+            $produto = container::getModel('produto');
 
             $produtos = $produto->getProdutos();
 
@@ -26,15 +26,11 @@
         public function sobre_nos(){
             //$this->view->dados = array('feijao', 'arroz');
 
-            //instancia conecxao pdo
-            $conn = connection::getDb();
+            $info = container::getModel('info');
 
-            //instancia oo produto
-            $produto = new produto($conn);
+            $informacoes = $info->getInfo();
             
-            $produtos = $produto->getProdutos();
-            
-            $this->view->dados = $produtos;
+            $this->view->dados = $informacoes;
 
             $this->render('sobreNos', 'layout2');
         }

@@ -1,4 +1,6 @@
 <?php
-     foreach ($this->view->dados as $indice => $valor) {
-          echo $valor.'<br>';
+     foreach ($this->view->dados as $indice => $info) {
+          echo '<h1>'. $info['titulo'] . '</h1>';
+          echo '<br>';
+          echo $info['descricao'];
      }
